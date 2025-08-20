@@ -5,18 +5,19 @@
  *
  * All spec algorithm step numbers are based on https://fetch.spec.whatwg.org/commit-snapshots/ae716822cb3a61843226cd090eefc6589446c1d2/.
  */
+'use strict';
 
 const https = require('node:https');
 const zlib = require('node:zlib');
-import Stream, {PassThrough, pipeline as pump} from 'node:stream';
+const { Stream, PassThrough, pipeline, pump } = require('node:stream');
 const {Buffer} = require('node:buffer');
 
 const dataUriToBuffer = require('data-uri-to-buffer');
 
 const {writeToStream, clone} = require('./body.js');
 const Response = require('./response.js');
-import Headers, {fromRawHeaders} from './headers.js';
-import Request, {getNodeRequestOptions} from './request.js';
+const { Headers, fromRawHeaders} = require('./headers.js');
+const { Request, getNodeRequestOptions} = require('./request.js');
 const {FetchError} = require('./errors/fetch-error.js');
 const {AbortError} = require('./errors/abort-error.js');
 const {isRedirect} = require('./utils/is-redirect.js');
