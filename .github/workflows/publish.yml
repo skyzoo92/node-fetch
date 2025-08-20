@@ -1,9 +1,9 @@
-name: Publish NPM Package
+name: Publish Package
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 jobs:
   publish:
