@@ -7,32 +7,51 @@
  */
 'use strict';
 
+const http = require('node:http');
 const https = require('node:https');
 const zlib = require('node:zlib');
-const { Stream, PassThrough, pipeline, pump } = require('node:stream');
-const {Buffer} = require('node:buffer');
-
+const Stream = require('node:stream');
+const { PassThrough, pipeline, pump } = require('node:stream');
+const { Buffer } = require('node:buffer');
 const dataUriToBuffer = require('data-uri-to-buffer');
-
-const {writeToStream, clone} = require('./body.js');
+const { writeToStream, clone } = require('./body.js');
 const Response = require('./response.js');
-const { Headers, fromRawHeaders} = require('./headers.js');
-const { Request, getNodeRequestOptions} = require('./request.js');
-const {FetchError} = require('./errors/fetch-error.js');
-const {AbortError} = require('./errors/abort-error.js');
-const {isRedirect} = require('./utils/is-redirect.js');
-const {FormData} = require('formdata-polyfill/esm.min.js');
-const {isDomainOrSubdomain, isSameProtocol} = require('./utils/is.js');
-const {parseReferrerPolicyFromHeader} = require('./utils/referrer.js');
-const {Blob,
-	File,
-	fileFromSync,
-	fileFrom,
-	blobFromSync,
-	blobFrom} = require('fetch-blob/from.js');
+const Headers = require('./headers.js');
+const { fromRawHeaders } = require('./headers.js');
+const Request = require('./request.js');
+const { getNodeRequestOptions } = require('./request.js');
+const { FetchError } = require('./errors/fetch-error.js');
+const { AbortError } = require('./errors/abort-error.js');
+const { isRedirect } = require('./utils/is-redirect.js');
+const { FormData } = require('formdata-polyfill/esm.min.js');
+const { isDomainOrSubdomain, isSameProtocol } = require('./utils/is.js');
+const { parseReferrerPolicyFromHeader } = require('./utils/referrer.js');
 
-module.exports = {FormData, Headers, Request, Response, FetchError, AbortError, isRedirect};
-module.exports = {Blob, File, fileFromSync, fileFrom, blobFromSync, blobFrom};
+const {
+  Blob,
+  File,
+  fileFromSync,
+  fileFrom,
+  blobFromSync,
+  blobFrom
+} = require('fetch-blob/from.js');
+
+module.exports = {
+  FormData,
+  Headers,
+  Request,
+  Response,
+  FetchError,
+  AbortError,
+  isRedirect,
+  Blob,
+  File,
+  fileFromSync,
+  fileFrom,
+  blobFromSync,
+  blobFrom
+};
+
 
 const supportedSchemas = new Set(['data:', 'http:', 'https:']);
 
