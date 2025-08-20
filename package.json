@@ -6,8 +6,8 @@
   "sideEffects": false,
   "type": "module",
     "exports": {
-    "import": "./src/index.js",   // untuk ESM
-    "require": "./src/index.cjs"  // untuk CJS
+    "import": "./src/index.js", 
+    "require": "./src/index.cjs" 
   },
   "files": [
     "src",
