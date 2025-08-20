@@ -369,8 +369,6 @@ const fetch = (url, options_) => {
 	});
 }
 
-exports.fetch = fetch
-
 function fixResponseChunkedTransferBadEnding(request, errorCallback) {
 	const LAST_CHUNK = Buffer.from('0\r\n\r\n');
 
@@ -415,3 +413,5 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
 		});
 	});
 }
+
+module.exports = exports = fetch
