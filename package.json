@@ -1,6 +1,6 @@
 {
   "name": "@kelvdra/node-fetch",
-  "version": "1.5.1",
+  "version": "1.0.1",
   "description": "A light-weight module that brings Fetch API to node.js Modifikasi By kelvdra.",
   "main": "./src/index.js",
   "sideEffects": false,
@@ -37,7 +37,7 @@
     "xhr",
     "whatwg"
   ],
-  "author": "Kelvdra",
+  "author": "@Kelvdra",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/node-fetch/node-fetch/issues"
